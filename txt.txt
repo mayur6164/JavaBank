@@ -1,0 +1,2 @@
+here first var diclare
+than value assing inside do and value assign outside do block and first do execute but afgter ffirst execution while starts and do again assign outside do block and while condition execute. 

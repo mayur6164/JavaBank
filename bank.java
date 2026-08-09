@@ -59,40 +59,44 @@ class JavaBank{
 
 public class bank{
     public static void main(String[] args){
-         // Creating Objects(Accounts).
+        // Creating Objects(Accounts).
         JavaBank c1 = new JavaBank("Mayur Kariya",101,15000);
-        
+            
         // Scanner Object created.
         Scanner sc = new Scanner(System.in);
-        
+        int menuChoice;
         // Menu of choosing:
-        // Welcome Message
-        System.out.println("===== Java Bank =====\n1. Display Account\n2. Deposit Money\n3. Withdraw Money\n4.Exit\nEnterchoice: ");
-        
-        int menuChoice = sc.nextInt();
-        switch (menuChoice) {
-        case 1:
-            // Displaying data of bank customers(objects).
-            c1.display();
-            break;
-        case 2:
-            // deposit Money 
-            System.out.println("Enter amount to deposit");
-            int deposit = sc.nextInt();
-            c1.deposit(deposit);
-            break;
-        case 3:
-            // withdraw Money
-            System.out.println("Enter withdraw amount: ");
-            int withdrawMoney = sc.nextInt();
-            c1.withdraw(withdrawMoney);
-            c1.display();
-            break;
-        case 4: 
-            System.exit(0);
-        default:
-            System.out.println("Enter an valid input from 1 to 4");
-            break;
-    }
+        do{
+            // Welcome Message
+            System.out.println("===== Java Bank =====\n1. Display Account\n2. Deposit Money\n3. Withdraw Money\n4.Exit\nEnter choice: ");
+                
+            // Taking input for menu choice 
+            menuChoice = sc.nextInt();
+
+            switch (menuChoice) {
+            case 1:
+                // Displaying data of bank customers(objects).
+                c1.display();
+                break;
+            case 2:
+                // deposit Money 
+                System.out.println("Enter amount to deposit");
+                int deposit = sc.nextInt();
+                c1.deposit(deposit);
+                break;
+            case 3:
+                // withdraw Money
+                System.out.println("Enter withdraw amount: ");
+                int withdrawMoney = sc.nextInt();
+                c1.withdraw(withdrawMoney);
+                c1.display();
+                break;
+            case 4: 
+                System.exit(0);
+            default:
+                System.out.println("Enter an valid input from 1 to 4");
+                break;
+            }
+        } while (menuChoice != 4);      
     }
 }
