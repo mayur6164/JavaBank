@@ -4,6 +4,7 @@ class JavaBank{
     // Instance Variables 
     String name;
     int accNo, balance;
+    final int minimumBalance = 10000;
     char rupeeChar = '\u20B9';
 
     // Parameterized constructor to initialize objects fields. 
@@ -33,23 +34,47 @@ class JavaBank{
         System.out.println("New Balance: "+ balance);
         }
     }
+
+    // Method to withdraw money from bank account
+    public void withdraw(int withdrawMoney){
+        int remainingBalance = balance - withdrawMoney;
+
+        if(remainingBalance >= minimumBalance && withdrawMoney > 0){
+            balance = balance - withdrawMoney;
+            System.out.println("withdraw Success.");
+            System.out.println("New Balance after withdraw: " + balance);
+        }
+        else if(withdrawMoney == 0){
+            System.out.println("Please withdraw minimum " +rupeeChar +"1");
+        }
+        else if(withdrawMoney < 0){
+            System.out.println("You can't withdraw a negative amount");
+        }
+        else{
+            System.out.println("You need to maintain minimum 10,000 rupis in bank account.");
+            System.out.println("Balance is still: " + balance);
+        }
+    }
 }
 
 public class bank{
     public static void main(String[] args){
         // Creating Objects(Accounts).
         JavaBank c1 = new JavaBank("Mayur Kariya",101,15000);
-        JavaBank c2 = new JavaBank("Vishnu Kariya",102,10000);
 
         // Displaying data of bank customers(objects).
         c1.display();
-        System.out.println("");
-        c2.display();
 
         // deposit Money 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter amount to deposit");
-        int deposit = sc.nextInt();
-        c2.deposit(deposit);
+        // System.out.println("Enter amount to deposit");
+        // int deposit = sc.nextInt();
+        // c1.deposit(deposit);
+        
+        // withdraw Money
+        System.out.println("Enter withdraw amount: ");
+        int withdrawMoney = sc.nextInt();
+        c1.withdraw(withdrawMoney);
+        c1.display();
     }
 }
