@@ -16,22 +16,30 @@ class JavaBank{
 
     // Method to display bank customer data
     public void display(){
+        System.out.println("---------------------------");
         System.out.println("Name: " + name);
         System.out.println("Account Number: " + accNo);
         System.out.println("Balance: " + balance);
+        System.out.println("---------------------------");
     }
 
     // Method to deposit money to bank Accounts
     public void deposit(int deposit){
         if(deposit == 0){
+        System.out.println("---------------------------");
             System.out.println("Please deposit minimum "+rupeeChar+"1");
+        System.out.println("---------------------------");
         }
         else if(deposit < 0){
+        System.out.println("---------------------------");
             System.out.println("You can't add minus value.");
+        System.out.println("---------------------------");
         }
         else{
         balance = balance + deposit;
+        System.out.println("---------------------------");
         System.out.println("New Balance: "+ balance);
+        System.out.println("---------------------------");
         }
     }
 
@@ -47,12 +55,16 @@ class JavaBank{
         }
         else if(remainingBalance >= minimumBalance && withdrawMoney > 0){
             balance = balance - withdrawMoney;
+        System.out.println("---------------------------");
             System.out.println("withdraw Success.");
             System.out.println("New Balance after withdraw: " + balance);
+        System.out.println("---------------------------");
         }  
         else{
+        System.out.println("---------------------------");
             System.out.println("You need to maintain minimum 10,000 rupis in bank account.");
             System.out.println("Balance is still: " + balance);
+        System.out.println("---------------------------");
         }
     }
 }
